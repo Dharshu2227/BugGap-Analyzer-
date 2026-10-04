@@ -1,0 +1,66 @@
+======================================================================
+                         BUGGAP ANALYZER
+======================================================================
+
+Problem Statement:
+Identify missed bugs and incorrect suggestions.
+
+FINAL RESULTS
+----------------------------------------------------------------------
+Bug Detection Rate     : 50.00%
+Suggestion Accuracy    : 50.00%
+Missed Bugs            : 3
+Incorrect Suggestions  : 3
+Overall Score          : 50.00%
+Performance            : Needs Improvement
+
+----------------------------------------------------------------------
+
+MISSED BUG CASES
+----------------------------------------------------------------------
+
+Test Case : TC03
+Expected  : AttributeError
+Detected  : No Issue
+Code      : name = None
+print(name.upper())
+Reason    : Bug was not correctly detected.
+
+Test Case : TC04
+Expected  : ValueError
+Detected  : TypeError
+Code      : age = int('abc')
+Reason    : Bug was not correctly detected.
+
+Test Case : TC06
+Expected  : KeyError
+Detected  : No Issue
+Code      : data = {'name': 'John'}
+print(data['age'])
+Reason    : Bug was not correctly detected.
+
+----------------------------------------------------------------------
+INCORRECT SUGGESTION CASES
+----------------------------------------------------------------------
+
+Test Case   : TC03
+Expected Bug: AttributeError
+Detected Bug: No Issue
+Suggestion  : Check whether the variable is None before calling string methods.
+Reason      : Suggestion was marked as incorrect.
+
+Test Case   : TC04
+Expected Bug: ValueError
+Detected Bug: TypeError
+Suggestion  : Ensure that the input contains a valid numeric value before conversion.
+Reason      : Suggestion was marked as incorrect.
+
+Test Case   : TC06
+Expected Bug: KeyError
+Detected Bug: No Issue
+Suggestion  : Check whether the requested key exists in the dictionary.
+Reason      : Suggestion was marked as incorrect.
+
+======================================================================
+                         END OF REPORT
+======================================================================
